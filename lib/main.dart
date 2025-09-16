@@ -79,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    final double defaultBorderRadiusValue = 10;
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -89,25 +90,53 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-
       body: Center(
-        // anything widget inside the center widget will all ways be centered in it parent
+        // Column
         child: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 0, 59, 87),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          margin: const EdgeInsets.fromLTRB(50, 50, 50, 50),
-          width: double.infinity,
-          height: double.infinity,
           padding: EdgeInsets.all(10),
-          child: Text(
-            'A text sample',
-            style: TextStyle(
-              fontSize: 16,
-              letterSpacing: 5,
-              color: const Color.fromARGB(255, 211, 105, 105),
-            ),
+          // width: double.infinity,
+          // height: double.infinity,
+          margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(99, 128, 128, 128),
+                offset: Offset(4, -4),
+                spreadRadius: 10.0,
+                blurRadius: 20.0,
+              ),
+            ],
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            color: const Color.fromARGB(255, 3, 25, 31),
+            // borderRadius: BorderRadius.only(
+            //   topLeft: Radius.circular(30),
+            //   topRight: Radius.circular(100),
+            // ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            // crossAxisAlignment: CrossAxisAlignment.end,
+            spacing: 10,
+            children: [
+              Container(
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(defaultBorderRadiusValue),
+                  color: Colors.amber,
+                ),
+                height: 100,
+              ),
+              Container(
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(defaultBorderRadiusValue),
+                  color: Colors.redAccent,
+                ),
+                height: 100,
+              ),
+            ],
           ),
         ),
       ),
