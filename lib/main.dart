@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
+          seedColor: const Color.fromARGB(255, 0, 22, 27),
           brightness: Brightness.dark,
         ),
       ),
@@ -135,6 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.redAccent,
                 ),
                 height: 100,
+                child: Center(child: Text('Hey there')),
               ),
             ],
           ),
