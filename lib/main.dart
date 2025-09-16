@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //   topRight: Radius.circular(100),
             // ),
           ),
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             // crossAxisAlignment: CrossAxisAlignment.end,
