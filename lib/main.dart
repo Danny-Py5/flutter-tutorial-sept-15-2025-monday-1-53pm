@@ -7,14 +7,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const String title = 'First App';
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: title,
+      title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -32,11 +30,11 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
+          seedColor: const Color.fromARGB(255, 0, 22, 27),
           brightness: Brightness.dark,
         ),
       ),
-      home: const MyHomePage(title: '$title Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -81,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    final double defaultBorderRadiusValue = 10;
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -92,9 +91,56 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Container(width: double.infinity)
+        // Column
+        child: Container(
+          padding: EdgeInsets.all(10),
+          // width: double.infinity,
+          // height: double.infinity,
+          margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(99, 128, 128, 128),
+                offset: Offset(4, -4),
+                spreadRadius: 10.0,
+                blurRadius: 20.0,
+              ),
+            ],
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            color: const Color.fromARGB(255, 3, 25, 31),
+            // borderRadius: BorderRadius.only(
+            //   topLeft: Radius.circular(30),
+            //   topRight: Radius.circular(100),
+            // ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            // crossAxisAlignment: CrossAxisAlignment.end,
+            spacing: 10,
+            children: [
+              Container(
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(defaultBorderRadiusValue),
+                  color: Colors.amber,
+                ),
+                height: 100,
+              ),
+              Container(
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(defaultBorderRadiusValue),
+                  color: Colors.redAccent,
+                ),
+                height: 100,
+                child: Center(child: Text('Hey there')),
+              ),
+            ],
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
