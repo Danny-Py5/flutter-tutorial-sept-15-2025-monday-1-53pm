@@ -92,13 +92,29 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Stack(
         children: [
-          Image.asset(
-            'assets/images/R.jpg',
-            width: 200,
-            height: 200,
+          Image.network(
+            'https://th.bing.com/th/id/OIP.PUStcNFYbW0w4xSZ1dfBZgHaDh?w=335&h=166&c=7&r=0&o=5&pid=1.7',
             fit: BoxFit.cover,
+            height: 300,
           ),
-          Text("He asdfa jsdfasd llo"),
+          SizedBox(
+            height: 300,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Hello world",
+                    style: TextStyle(
+                      fontSize: 35,
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
 
