@@ -19,17 +19,28 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Flutter'),
-          centerTitle: false,
+          centerTitle: true,
           titleSpacing: 0,
-          actionsIconTheme: IconThemeData(color: Colors.orange),
-          leading: Icon(Icons.people_alt),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.menu),
-            ),
-          ],
+
           backgroundColor: const Color.fromARGB(255, 0, 116, 132),
+        ),
+        drawer: SafeArea(
+          child: Drawer(
+            child: Column(
+              children: [
+                DrawerHeader(child: Text('Options')),
+                ListTile(title: Text("Setting"), leading: Icon(Icons.settings)),
+                ListTile(
+                  title: Text("Theme"),
+                  leading: Icon(Icons.brightness_2),
+                ),
+                ListTile(
+                  title: Text("Logout"),
+                  leading: Icon(Icons.logout_outlined),
+                ),
+              ],
+            ),
+          ),
         ),
         floatingActionButton: Column(
           mainAxisSize: MainAxisSize.min,
