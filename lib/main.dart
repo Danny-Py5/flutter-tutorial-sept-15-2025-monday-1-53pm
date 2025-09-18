@@ -31,6 +31,21 @@ class MyApp extends StatelessWidget {
           ],
           backgroundColor: const Color.fromARGB(255, 0, 116, 132),
         ),
+        floatingActionButton: Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 8,
+          children: [
+            FloatingActionButton(
+              onPressed: () {},
+              focusColor: Colors.red,
+              child: Icon(Icons.play_arrow),
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.download_for_offline_outlined),
+            ),
+          ],
+        ),
         bottomNavigationBar: NavigationBar(
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
