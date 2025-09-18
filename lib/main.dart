@@ -93,27 +93,32 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Stack(
         children: [
-          Image.network(
-            'https://th.bing.com/th/id/OIP.PUStcNFYbW0w4xSZ1dfBZgHaDh?w=335&h=166&c=7&r=0&o=5&pid=1.7',
-            fit: BoxFit.cover,
-            height: 300,
+          ListTile(
+            leading: Icon(Icons.wifi_sharp),
+            tileColor: const Color.fromARGB(255, 209, 43, 2),
+            trailing: Icon(Icons.chevron_right_outlined),
+            title: Text("Hello world!"),
+            onTap: () {
+              print('You tapped');
+            },
           ),
+
           SizedBox(
             height: 300,
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Hello world",
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
+            // width: double.infinity,
+            child: Row(
+              // mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Hello world",
+                  style: TextStyle(
+                    fontSize: 35,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
