@@ -91,39 +91,75 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         leading: Icon(Icons.account_circle, color: Colors.orange, size: 40.0),
       ),
-      body: Stack(
-        children: [
-          ListTile(
-            leading: Icon(Icons.wifi_sharp),
-            tileColor: const Color.fromARGB(255, 209, 43, 2),
-            trailing: Icon(Icons.chevron_right_outlined),
-            title: Text("Hello world!"),
-            onTap: () {
-              print('You tapped');
-            },
-          ),
+      body: Container(
+        decoration: BoxDecoration(color: const Color.fromARGB(255, 0, 2, 32)),
+        width: double.infinity,
 
-          SizedBox(
-            height: 300,
-            // width: double.infinity,
-            child: Row(
-              // mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Hello world",
-                  style: TextStyle(
-                    fontSize: 35,
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
-                  ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Wrap(
+            spacing: 10.0,
+
+            children: [
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ],
-            ),
-          ),
-        ],
-      ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
 
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
