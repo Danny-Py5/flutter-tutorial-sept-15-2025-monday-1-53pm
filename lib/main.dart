@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/value_notifier.dart';
 import 'package:flutter_application_1/views/widget_tree.dart';
 // import 'package:flutter_application_1/widgets/bottom_tab_widget.dart';
 
@@ -14,18 +15,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int currentTab = 0;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
-          brightness: Brightness.dark,
-        ),
-      ),
-      home: WidgetTree(),
+    return ValueListenableBuilder(
+      valueListenable: modeSwitchNotifier,
+      builder: (BuildContext context, bool mode, Widget? child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.teal,
+              brightness: modeSwitchNotifier.value == true
+                  ? Brightness.light
+                  : Brightness.dark,
+            ),
+          ),
+          home: WidgetTree(),
+        );
+      },
     );
   }
 }

@@ -17,7 +17,21 @@ class WidgetTree extends StatelessWidget {
           title: Text('Flutter'),
           centerTitle: true,
           titleSpacing: 0,
-
+          actions: [
+            ValueListenableBuilder(
+              valueListenable: modeSwitchNotifier,
+              builder: (BuildContext context, bool value, Widget? child) {
+                return IconButton(
+                  onPressed: () {
+                    modeSwitchNotifier.value = !value;
+                  },
+                  icon: modeSwitchNotifier.value == true
+                      ? Icon(Icons.light_mode)
+                      : Icon(Icons.dark_mode),
+                );
+              },
+            ),
+          ],
           backgroundColor: const Color.fromARGB(255, 0, 116, 132),
         ),
         body: ValueListenableBuilder(
