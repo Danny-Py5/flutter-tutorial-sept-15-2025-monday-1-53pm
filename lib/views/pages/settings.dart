@@ -27,6 +27,7 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(
         title: Text(widget.title),
         titleSpacing: 0,
+
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -42,6 +43,28 @@ class _SettingsState extends State<Settings> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              FilledButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text("FLutter"),
+                        content: Text("You are using a flutter demo app"),
+                        actions: [
+                          OutlinedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("Close"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text('Show alert'),
+              ),
               DropdownButton(
                 value: selectedItem,
                 icon: Icon(Icons.list_sharp),
