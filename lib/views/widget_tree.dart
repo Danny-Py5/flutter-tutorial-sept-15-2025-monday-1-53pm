@@ -20,11 +20,11 @@ class WidgetTree extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Settings();
+                    return Settings(title: "Settings Page");
                   },
                 ),
               );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/value_notifier.dart';
+import 'package:flutter_application_1/views/pages/welcome_page.dart';
 import 'package:flutter_application_1/views/widget_tree.dart';
+import 'package:flutter_application_1/views/widgets/hero_widget.dart';
 // import 'package:flutter_application_1/widgets/bottom_tab_widget.dart';
 
 void main() {
@@ -30,7 +32,7 @@ class _MyAppState extends State<MyApp> {
                   : Brightness.dark,
             ),
           ),
-          home: WidgetTree(),
+          home: WelcomePage(),
         );
       },
     );

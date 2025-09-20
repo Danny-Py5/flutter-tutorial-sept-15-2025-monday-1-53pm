@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../data/value_notifier.dart';
 
 class Settings extends StatefulWidget {
-  const Settings({super.key});
+  const Settings({super.key, required this.title});
+
+  final String title;
 
   @override
   State<Settings> createState() => _SettingsState();
@@ -23,9 +25,15 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
-
-        // automaticallyImplyLeading: false,
+        title: Text(widget.title),
+        titleSpacing: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+        automaticallyImplyLeading: false,
       ),
 
       body: SingleChildScrollView(
