@@ -119,6 +119,8 @@ class _ProfilePageState extends State<ProfilePage> {
             FilledButton(onPressed: () => {}, child: Text("FilleButton")),
             TextButton(onPressed: () => {}, child: Text("TextButton")),
             OutlinedButton(onPressed: () => {}, child: Text("OutlinedButton")),
+            CloseButton(),
+            BackButton(),
           ],
         ),
       ),
