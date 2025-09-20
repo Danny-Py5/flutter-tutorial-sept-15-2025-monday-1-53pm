@@ -11,6 +11,9 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController controller = TextEditingController();
 
   bool isChecked = false;
+
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,13 +33,13 @@ class _ProfilePageState extends State<ProfilePage> {
             },
           ),
           Text(controller.text),
-          // Checkbox(
-          //   tristate: true,
-          //   value: isChecked,
-          //   onChanged: (bool? value) => setState(() {
-          //     isChecked = !isChecked;
-          //   }),
-          // ),
+          Checkbox(
+            tristate: true,
+            value: isChecked,
+            onChanged: (bool? value) => setState(() {
+              isChecked = !isChecked;
+            }),
+          ),
 
           // ListTile that has checkbox
           CheckboxListTile(
@@ -50,6 +53,20 @@ class _ProfilePageState extends State<ProfilePage> {
               });
             },
             title: Text("List of item"),
+          ),
+
+          Switch(
+            value: isSwitched,
+            onChanged: (bool value) {
+              setState(() {
+                isSwitched = value;
+              });
+            },
+          ),
+
+          SwitchListTile(
+            value: isSwitched,
+            onChanged: (bool value) => setState(() => isSwitched = value),
           ),
         ],
       ),
