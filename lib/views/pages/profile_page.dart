@@ -18,74 +18,85 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextField(
-            autocorrect: true,
-            controller: controller,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hint: Text("Type something.."),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              autocorrect: true,
+              controller: controller,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hint: Text("Type something.."),
+              ),
+              onEditingComplete: () {
+                setState(() {});
+              },
             ),
-            onEditingComplete: () {
-              setState(() {});
-            },
-          ),
-          Text(controller.text),
-          Checkbox.adaptive(
-            tristate: true,
-            value: isChecked,
-            onChanged: (bool? value) => setState(() {
-              isChecked = !isChecked;
-            }),
-          ),
+            Text(controller.text),
+            Checkbox.adaptive(
+              tristate: true,
+              value: isChecked,
+              onChanged: (bool? value) => setState(() {
+                isChecked = !isChecked;
+              }),
+            ),
 
-          // ListTile that has checkbox
-          CheckboxListTile.adaptive(
-            tristate: true,
-            value: isChecked,
-            onChanged: (bool? value) {
-              setState(() {
-                isChecked =
-                    value ??
-                    false; // be set to value else false if value is null
-              });
-            },
-            title: Text("List of item"),
-          ),
+            // ListTile that has checkbox
+            CheckboxListTile.adaptive(
+              tristate: true,
+              value: isChecked,
+              onChanged: (bool? value) {
+                setState(() {
+                  isChecked =
+                      value ??
+                      false; // be set to value else false if value is null
+                });
+              },
+              title: Text("List of item"),
+            ),
 
-          Switch.adaptive(
-            value: isSwitched,
-            onChanged: (bool value) {
-              setState(() {
-                isSwitched = value;
-              });
-            },
-          ),
+            Switch.adaptive(
+              value: isSwitched,
+              onChanged: (bool value) {
+                setState(() {
+                  isSwitched = value;
+                });
+              },
+            ),
 
-          SwitchListTile.adaptive(
-            value: isSwitched,
-            title: Text('Enter Heaven'),
-            onChanged: (bool value) => setState(() => isSwitched = value),
-          ),
+            SwitchListTile.adaptive(
+              value: isSwitched,
+              title: Text('Enter Heaven'),
+              onChanged: (bool value) => setState(() => isSwitched = value),
+            ),
 
-          // slider
-          Slider.adaptive(
-            value: sliderValue,
-            max: 100.0,
-            divisions: 10,
-            onChanged: (double value) {
-              setState(() {
-                sliderValue = value;
-              });
+            // slider
+            Slider.adaptive(
+              value: sliderValue,
+              max: 100.0,
+              divisions: 10,
+              onChanged: (double value) {
+                setState(() {
+                  sliderValue = value;
+                });
 
-              print(value);
-            },
-          ),
-        ],
+                print(value);
+              },
+            ),
+
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  isSwitched = !isSwitched;
+                });
+              },
+              child: Image.asset('assets/bg.webp'),
+            ),
+          ],
+        ),
       ),
     );
   }
