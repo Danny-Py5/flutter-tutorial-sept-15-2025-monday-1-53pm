@@ -14,6 +14,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   bool isSwitched = false;
 
+  double sliderValue = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -66,7 +68,22 @@ class _ProfilePageState extends State<ProfilePage> {
 
           SwitchListTile.adaptive(
             value: isSwitched,
+            title: Text('Enter Heaven'),
             onChanged: (bool value) => setState(() => isSwitched = value),
+          ),
+
+          // slider
+          Slider.adaptive(
+            value: sliderValue,
+            max: 100.0,
+            divisions: 10,
+            onChanged: (double value) {
+              setState(() {
+                sliderValue = value;
+              });
+
+              print(value);
+            },
           ),
         ],
       ),
