@@ -5,7 +5,7 @@ import 'package:flutter_application_1/views/pages/profile_page.dart';
 import 'package:flutter_application_1/views/pages/settings.dart';
 import 'package:flutter_application_1/views/widgets/bottom_tab_widget.dart';
 
-List<Widget> myPages = [HomePage(), ProfilePage(), Settings()];
+List<Widget> myPages = [HomePage(), ProfilePage()];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});
@@ -18,6 +18,19 @@ class WidgetTree extends StatelessWidget {
         centerTitle: true,
         titleSpacing: 0,
         actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Settings();
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.settings),
+          ),
           ValueListenableBuilder(
             valueListenable: modeSwitchNotifier,
             builder: (BuildContext context, bool value, Widget? child) {
