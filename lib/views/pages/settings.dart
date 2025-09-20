@@ -21,6 +21,10 @@ class _SettingsState extends State<Settings> {
   double sliderValue = 0.0;
   String? selectedItem = 'i1';
 
+  void closeThisPage(context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +68,15 @@ class _SettingsState extends State<Settings> {
                   );
                 },
                 child: Text('Show alert'),
+              ),
+              Divider(thickness: 3),
+              FilledButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text('SnackBar shown')));
+                },
+                child: Text('Show SnackBar'),
               ),
               DropdownButton(
                 value: selectedItem,
@@ -180,20 +193,21 @@ class _SettingsState extends State<Settings> {
                 onPressed: () => {},
                 child: Text("OutlinedButton"),
               ),
-              CloseButton(),
+              // CloseButton(),
               Row(
                 children: [
                   ValueListenableBuilder(
                     valueListenable: selectedPageNotifier,
                     builder: (context, value, child) {
                       return BackButton(
-                        onPressed: () {
-                          selectedPageNotifier.value = 0;
-                        },
+                        onPressed: () => closeThisPage(context),
                       );
                     },
                   ),
-                  Text("Back to Home"),
+                  GestureDetector(
+                    onTap: () => closeThisPage(context),
+                    child: Text("Back to Home"),
+                  ),
                 ],
               ),
             ],

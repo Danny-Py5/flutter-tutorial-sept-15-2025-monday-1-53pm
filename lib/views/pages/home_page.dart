@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/constants/defaults.dart';
 import 'package:flutter_application_1/views/widgets/hero_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,7 +10,27 @@ class HomePage extends StatelessWidget {
     return Column(
       children: [
         HeroWidget(),
-        // Center(child: Text("Home Page", style: TextStyle(fontSize: 25))),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: Defaults.padding),
+          child: SizedBox(
+            width: double.infinity,
+            child: Card(
+              child: Padding(
+                padding: EdgeInsets.all(Defaults.padding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Card Title", style: KTextStyle.titleTextStyle),
+                    Text(
+                      "This is the card Description",
+                      style: KTextStyle.descriptionTextStyle,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
