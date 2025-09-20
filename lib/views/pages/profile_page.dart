@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../data/value_notifier.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -120,7 +122,21 @@ class _ProfilePageState extends State<ProfilePage> {
             TextButton(onPressed: () => {}, child: Text("TextButton")),
             OutlinedButton(onPressed: () => {}, child: Text("OutlinedButton")),
             CloseButton(),
-            BackButton(),
+            Row(
+              children: [
+                ValueListenableBuilder(
+                  valueListenable: selectedPageNotifier,
+                  builder: (context, value, child) {
+                    return BackButton(
+                      onPressed: () {
+                        selectedPageNotifier.value = 0;
+                      },
+                    );
+                  },
+                ),
+                Text("Back to Home"),
+              ],
+            ),
           ],
         ),
       ),

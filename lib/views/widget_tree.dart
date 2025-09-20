@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/value_notifier.dart';
 import 'package:flutter_application_1/views/pages/home_page.dart';
 import 'package:flutter_application_1/views/pages/profile_page.dart';
+import 'package:flutter_application_1/views/pages/settings.dart';
 import 'package:flutter_application_1/views/widgets/bottom_tab_widget.dart';
 
-List<Widget> myPages = [HomePage(), ProfilePage()];
+List<Widget> myPages = [HomePage(), ProfilePage(), Settings()];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});

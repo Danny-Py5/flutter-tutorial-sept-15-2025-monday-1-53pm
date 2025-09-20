@@ -13,6 +13,10 @@ class BottomTabWidget extends StatelessWidget {
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
             NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+            NavigationDestination(
+              icon: Icon(Icons.settings),
+              label: "Settings",
+            ),
           ],
           // Tab handler
           onDestinationSelected: (value) {
