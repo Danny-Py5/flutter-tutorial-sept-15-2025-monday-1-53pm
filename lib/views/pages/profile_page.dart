@@ -87,13 +87,20 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
 
-            GestureDetector(
+            InkWell(
               onTap: () {
                 setState(() {
                   isSwitched = !isSwitched;
                 });
               },
-              child: Image.asset('assets/bg.webp'),
+              child: Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Colors.white10,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
             ),
           ],
         ),
