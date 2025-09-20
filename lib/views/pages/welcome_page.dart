@@ -18,7 +18,7 @@ class WelcomePage extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text("Successfully Login"),
-                  duration: Duration(seconds: 5),
+                  duration: Durations.extralong1,
                   behavior: SnackBarBehavior.floating,
                 ),
               );
