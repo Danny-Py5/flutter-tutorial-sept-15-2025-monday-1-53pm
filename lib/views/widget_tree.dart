@@ -20,7 +20,7 @@ class WidgetTree extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
