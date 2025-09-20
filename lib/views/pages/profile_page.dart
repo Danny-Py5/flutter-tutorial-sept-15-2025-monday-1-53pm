@@ -9,12 +9,14 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   TextEditingController controller = TextEditingController();
+
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
             autocorrect: true,
@@ -28,6 +30,27 @@ class _ProfilePageState extends State<ProfilePage> {
             },
           ),
           Text(controller.text),
+          // Checkbox(
+          //   tristate: true,
+          //   value: isChecked,
+          //   onChanged: (bool? value) => setState(() {
+          //     isChecked = !isChecked;
+          //   }),
+          // ),
+
+          // ListTile that has checkbox
+          CheckboxListTile(
+            tristate: true,
+            value: isChecked,
+            onChanged: (bool? value) {
+              setState(() {
+                isChecked =
+                    value ??
+                    false; // be set to value else false if value is null
+              });
+            },
+            title: Text("List of item"),
+          ),
         ],
       ),
     );
