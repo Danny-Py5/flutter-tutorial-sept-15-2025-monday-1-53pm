@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-ValueNotifier<int> selectedPageNotifier = ValueNotifier(0);
-ValueNotifier<bool> modeSwitchNotifier = ValueNotifier(true);
+ValueNotifier<int> selectedPageNotifier = ValueNotifier(1);
+ValueNotifier<bool> modeSwitchNotifier = ValueNotifier(false);
 
 
 // ValueNotifier,  -> holds value 

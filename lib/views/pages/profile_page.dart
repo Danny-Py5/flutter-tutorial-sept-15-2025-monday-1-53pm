@@ -95,13 +95,30 @@ class _ProfilePageState extends State<ProfilePage> {
               },
               child: Container(
                 width: double.infinity,
-                height: 200,
+                height: 50,
                 decoration: BoxDecoration(
                   color: Colors.white10,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
             ),
+
+            // styled button (Elevated button) // other types of button
+            // can also be styled. but styles should be minimum as many
+            // buttons defined for us already and styled.
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () {},
+              child: Text("Styled ElevatedButton"),
+            ),
+            // normal elevated button
+            ElevatedButton(onPressed: () {}, child: Text('ElevatedButton')),
+            FilledButton(onPressed: () => {}, child: Text("FilleButton")),
+            TextButton(onPressed: () => {}, child: Text("TextButton")),
+            OutlinedButton(onPressed: () => {}, child: Text("OutlinedButton")),
           ],
         ),
       ),
