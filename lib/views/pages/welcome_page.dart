@@ -8,24 +8,33 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        HeroWidget(),
-        FilledButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return WidgetTree();
-                },
-              ),
-            );
-          },
-          child: Text("Login"),
-        ),
-      ],
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          HeroWidget(),
+          FilledButton(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("Successfully Login"),
+                  duration: Duration(seconds: 5),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return WidgetTree();
+                  },
+                ),
+              );
+            },
+            child: Text("Login "),
+          ),
+        ],
+      ),
     );
   }
 }
