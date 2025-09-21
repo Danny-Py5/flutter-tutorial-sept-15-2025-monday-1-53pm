@@ -7,31 +7,29 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        HeroWidget(),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: Defaults.padding),
-          child: SizedBox(
+    return Padding(
+      padding: const EdgeInsets.all(Defaults.padding),
+      child: Column(
+        spacing: Defaults.spacing,
+        children: [
+          HeroWidget(title: 'Welcome'),
+          SizedBox(
             width: double.infinity,
             child: Card(
-              child: Padding(
-                padding: EdgeInsets.all(Defaults.padding),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Card Title", style: KTextStyle.titleTextStyle),
-                    Text(
-                      "This is the card Description",
-                      style: KTextStyle.descriptionTextStyle,
-                    ),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Card Title", style: KTextStyle.titleTextStyle),
+                  Text(
+                    "This is the card Description",
+                    style: KTextStyle.descriptionTextStyle,
+                  ),
+                ],
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

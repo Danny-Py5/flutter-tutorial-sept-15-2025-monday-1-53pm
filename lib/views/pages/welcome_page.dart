@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/views/widgets/hero_widget.dart';
+import 'package:flutter_application_1/data/constants/defaults.dart';
+import 'package:flutter_application_1/views/pages/get_started_page.dart';
+import 'package:flutter_application_1/views/pages/login.dart';
+// import 'package:flutter_application_1/views/widgets/hero_widget.dart';
+import 'package:lottie/lottie.dart';
 
-import '../widget_tree.dart';
+// import '../widget_tree.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -9,31 +13,58 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          HeroWidget(),
-          FilledButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text("Successfully Login"),
-                  duration: Durations.extralong1,
-                  behavior: SnackBarBehavior.floating,
-                ),
-              );
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return WidgetTree();
-                  },
-                ),
-              );
-            },
-            child: Text("Login "),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(Defaults.padding),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Flutter App",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Defaults.color,
+              ),
+            ),
+            Lottie.asset('assets/lotties/home.json'),
+            Text(
+              "Welcome Back!",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return GetStartedPage();
+                      },
+                    ),
+                  );
+                },
+                child: Text("Get Started!"),
+              ),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Login();
+                      },
+                    ),
+                  );
+                },
+                child: Text("Login"),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
