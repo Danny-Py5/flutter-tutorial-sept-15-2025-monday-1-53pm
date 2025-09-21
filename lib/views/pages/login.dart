@@ -5,7 +5,9 @@ import 'package:flutter_application_1/views/widget_tree.dart';
 import 'package:flutter_application_1/views/widgets/hero_widget.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  const Login({super.key, required this.title});
+
+  final String title;
 
   @override
   State<Login> createState() => _LoginState();
@@ -29,14 +31,14 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(Defaults.padding),
         child: SingleChildScrollView(
           child: Column(
             spacing: 20,
             children: [
-              HeroWidget(title: 'Login'),
+              HeroWidget(title: widget.title),
               TextField(
                 controller: controllerEmail,
                 onEditingComplete: () {
@@ -74,10 +76,12 @@ class _LoginState extends State<Login> {
                         ),
                       );
                     } else {
-                      SnackBar(content: Text('Invalid credentials'));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Invalid credentials")),
+                      );
                     }
                   },
-                  child: Text("Submit"),
+                  child: Text(widget.title),
                 ),
               ),
             ],

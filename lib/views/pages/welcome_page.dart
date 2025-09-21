@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
-import 'package:flutter_application_1/views/pages/get_started_page.dart';
+// import 'package:flutter_application_1/views/pages/get_started_page.dart';
 import 'package:flutter_application_1/views/pages/login.dart';
 // import 'package:flutter_application_1/views/widgets/hero_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -39,7 +39,7 @@ class WelcomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return GetStartedPage();
+                        return Login(title: 'Get Started');
                       },
                     ),
                   );
@@ -55,7 +55,7 @@ class WelcomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Login();
+                        return Login(title: 'Login');
                       },
                     ),
                   );
