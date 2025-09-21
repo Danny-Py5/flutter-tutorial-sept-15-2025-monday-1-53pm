@@ -12,23 +12,25 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: Text("Logout"),
-          onTap: () {
-            selectedPageNotifier.value = 0;
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return WelcomePage();
-                },
-              ),
-            );
-          },
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ListTile(
+            title: Text("Logout"),
+            onTap: () {
+              selectedPageNotifier.value = 0;
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return WelcomePage();
+                  },
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

@@ -13,57 +13,59 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(Defaults.padding),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Flutter App",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Defaults.color,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(Defaults.padding),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Flutter App",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Defaults.color,
+                ),
               ),
-            ),
-            Lottie.asset('assets/lotties/home.json'),
-            Text(
-              "Welcome Back!",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Login(title: 'Get Started');
-                      },
-                    ),
-                  );
-                },
-                child: Text("Get Started!"),
+              Lottie.asset('assets/lotties/home.json', height: 400),
+              Text(
+                "Welcome Back!",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Login(title: 'Login');
-                      },
-                    ),
-                  );
-                },
-                child: Text("Login"),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return Login(title: 'Get Started');
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("Get Started!"),
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return Login(title: 'Login');
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("Login"),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
