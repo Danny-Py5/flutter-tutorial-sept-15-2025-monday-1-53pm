@@ -14,8 +14,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final TextEditingController controllerEmail = TextEditingController();
-  final TextEditingController controllerPw = TextEditingController();
+  final TextEditingController controllerEmail = TextEditingController(
+    text: '111',
+  );
+  final TextEditingController controllerPw = TextEditingController(text: '111');
 
   final String confirmedEmail = '111';
   final String confirmedPw = '111';

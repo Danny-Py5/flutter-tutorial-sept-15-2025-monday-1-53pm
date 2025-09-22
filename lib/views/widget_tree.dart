@@ -53,22 +53,22 @@ class WidgetTree extends StatelessWidget {
           return myPages.elementAt(value);
         },
       ),
-      drawer: SafeArea(
-        child: Drawer(
-          child: Column(
-            children: [
-              DrawerHeader(child: Text('Options')),
-              ListTile(title: Text("Setting"), leading: Icon(Icons.settings)),
-              ListTile(title: Text("Theme"), leading: Icon(Icons.brightness_2)),
-              ListTile(
-                title: Text("Logout"),
-                leading: Icon(Icons.logout_outlined),
-              ),
-            ],
-          ),
-        ),
-      ),
 
+      // drawer: SafeArea(
+      //   child: Drawer(
+      //     child: Column(
+      //       children: [
+      //         DrawerHeader(child: Text('Options')),
+      //         ListTile(title: Text("Setting"), leading: Icon(Icons.settings)),
+      //         ListTile(title: Text("Theme"), leading: Icon(Icons.brightness_2)),
+      //         ListTile(
+      //           title: Text("Logout"),
+      //           leading: Icon(Icons.logout_outlined),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
       bottomNavigationBar: const BottomTabWidget(),
     );
   }
