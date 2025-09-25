@@ -69,13 +69,14 @@ class _LoginState extends State<Login> {
                   onPressed: () {
                     if (controllerEmail.text == confirmedEmail &&
                         controllerPw.text == confirmedPw) {
-                      Navigator.pushReplacement(
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
                             return WidgetTree();
                           },
                         ),
+                        (route) => false,
                       );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
