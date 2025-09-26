@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
+import 'package:flutter_application_1/data/value_notifier.dart';
 
 class LoginExercisePage extends StatefulWidget {
   const LoginExercisePage({super.key});
@@ -11,7 +12,9 @@ class LoginExercisePage extends StatefulWidget {
 class _LoginExercisePageState extends State<LoginExercisePage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  final textInputFillColor = Colors.teal[50];
+  final textInputFillColor = modeSwitchNotifier.value == true
+      ? Colors.teal[50]
+      : Color.fromARGB(81, 179, 214, 212);
 
   @override
   void dispose() {
