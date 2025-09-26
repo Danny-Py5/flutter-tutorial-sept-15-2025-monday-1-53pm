@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
 import 'package:flutter_application_1/data/value_notifier.dart';
+import 'package:flutter_application_1/views/pages/login_exercise_page.dart';
 import 'package:flutter_application_1/views/pages/welcome_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -51,6 +52,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 MaterialPageRoute(
                   builder: (context) {
                     return WelcomePage();
+                  },
+                ),
+              );
+            },
+          ),
+          ListTile(
+            trailing: Icon(Icons.navigate_next),
+            title: Text("Login Page design"),
+            onTap: () {
+              selectedPageNotifier.value = 0;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return LoginExercisePage();
                   },
                 ),
               );
