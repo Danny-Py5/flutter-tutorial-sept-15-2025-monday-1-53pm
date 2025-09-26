@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/pages/expanded_flexible_page.dart';
 
 import '../../data/value_notifier.dart';
 
@@ -182,8 +183,17 @@ class _SettingsState extends State<Settings> {
                   backgroundColor: Colors.teal,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: () {},
-                child: Text("Styled ElevatedButton"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ExpandedFlexiblePage();
+                      },
+                    ),
+                  );
+                },
+                child: Text("Show ExpandedFlexible"),
               ),
               // normal elevated button
               ElevatedButton(onPressed: () {}, child: Text('ElevatedButton')),
