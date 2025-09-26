@@ -3,24 +3,32 @@ import 'package:flutter_application_1/views/pages/course_page.dart';
 import 'package:lottie/lottie.dart';
 
 class HeroWidget extends StatelessWidget {
-  const HeroWidget({super.key, required this.title, this.getStarted = false});
+  const HeroWidget({
+    super.key,
+    required this.title,
+    this.getStarted = false,
+    this.clickable,
+  });
   final String title;
   final bool getStarted;
+  final bool? clickable;
 
   @override
   Widget build(BuildContext context) {
     if (getStarted == false) {
       return GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return CoursePage();
-              },
-            ),
-          );
-        },
+        onTap: clickable == true
+            ? () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return CoursePage();
+                    },
+                  ),
+                );
+              }
+            : () {},
         child: Stack(
           alignment: Alignment.center,
           children: [

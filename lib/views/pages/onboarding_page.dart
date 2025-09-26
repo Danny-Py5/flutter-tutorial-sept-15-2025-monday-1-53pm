@@ -19,7 +19,7 @@ class OnboardingPage extends StatelessWidget {
               children: [
                 Lottie.asset('assets/lotties/home.json'),
                 Text(
-                  "Flutter app is the application i build while learning Flutter",
+                  "Flutter app is the application i built while learning Flutter",
                   style: KTextStyle.descriptionTextStyle,
                 ),
                 SizedBox(

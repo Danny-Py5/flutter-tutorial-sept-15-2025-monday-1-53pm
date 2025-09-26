@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           spacing: Defaults.spacingSm,
           children: [
-            HeroWidget(title: 'Welcome'),
+            HeroWidget(title: 'Welcome', clickable: true),
             ...List.generate(dataList.length, (index) {
               return ContainerWidget(
                 title: dataList.elementAt(index),
