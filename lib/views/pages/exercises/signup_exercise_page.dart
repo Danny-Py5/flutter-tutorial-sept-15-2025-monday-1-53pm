@@ -11,17 +11,26 @@ class SignupExercisePage extends StatefulWidget {
 }
 
 class _SignupExercisePageState extends State<SignupExercisePage> {
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+
+  final textInputFillColor = modeSwitchNotifier.value == true
+      ? Colors.teal[50]
+      : Color.fromARGB(81, 179, 214, 212);
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    emailController.dispose();
+    usernameController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController passwordController = TextEditingController();
-    TextEditingController confirmPasswordController = TextEditingController();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController usernameController = TextEditingController();
-
-    final textInputFillColor = modeSwitchNotifier.value == true
-        ? Colors.teal[50]
-        : Color.fromARGB(81, 179, 214, 212);
-
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
