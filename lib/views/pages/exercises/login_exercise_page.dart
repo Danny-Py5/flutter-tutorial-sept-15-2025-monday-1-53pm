@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
 import 'package:flutter_application_1/data/value_notifier.dart';
+import 'package:flutter_application_1/views/pages/exercises/signup_exercise_page.dart';
 
 class LoginExercisePage extends StatefulWidget {
   const LoginExercisePage({super.key});
@@ -101,7 +102,19 @@ class _LoginExercisePageState extends State<LoginExercisePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text("Don't have an account?"),
-                    TextButton(onPressed: () {}, child: Text("Sign up")),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return SignupExercisePage();
+                            },
+                          ),
+                        );
+                      },
+                      child: Text("Sign up"),
+                    ),
                   ],
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
 import 'package:flutter_application_1/data/value_notifier.dart';
+import 'package:flutter_application_1/views/pages/exercises/signup_exercise_page.dart';
 import 'package:flutter_application_1/views/pages/welcome_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:flutter_application_1/widgets/bottom_tab_widget.dart';
@@ -45,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                   : Brightness.dark,
             ),
           ),
-          home: WelcomePage(),
+          home: SignupExercisePage(), // WelcomePage(),
         );
       },
     );

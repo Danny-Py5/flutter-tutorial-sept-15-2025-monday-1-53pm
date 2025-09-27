@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
 import 'package:flutter_application_1/data/value_notifier.dart';
-import 'package:flutter_application_1/views/pages/login_exercise_page.dart';
+import 'package:flutter_application_1/views/pages/exercises/login_exercise_page.dart';
 import 'package:flutter_application_1/views/pages/welcome_page.dart';
 
 class ProfilePage extends StatefulWidget {
