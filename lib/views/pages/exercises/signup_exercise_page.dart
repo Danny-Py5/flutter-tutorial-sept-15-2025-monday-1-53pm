@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
 import 'package:flutter_application_1/data/value_notifier.dart';
+import 'package:flutter_application_1/views/pages/exercises/login_exercise_page.dart';
 
 class SignupExercisePage extends StatefulWidget {
   const SignupExercisePage({super.key});
@@ -28,7 +29,11 @@ class _SignupExercisePageState extends State<SignupExercisePage> {
           padding: const EdgeInsets.all(8.0),
           child: Center(
             child: FractionallySizedBox(
-              widthFactor: MediaQuery.of(context).size.width < 400 ? 0.9 : 0.7,
+              widthFactor: MediaQuery.of(context).size.width < 376
+                  ? 1.0
+                  : MediaQuery.of(context).size.width < 412
+                  ? 0.9
+                  : 0.75,
               child: Column(
                 mainAxisSize: MainAxisSize.min, // 👈 important fix
                 children: [
@@ -121,33 +126,43 @@ class _SignupExercisePageState extends State<SignupExercisePage> {
                             ),
                           ),
                         ),
-                        FilledButton(onPressed: () {}, child: Text('Login >')),
+                        SizedBox(
+                          width: double.infinity,
+                          child: FilledButton(
+                            onPressed: () {},
+                            child: Text('Sign up'),
+                          ),
+                        ),
+                        Text("Or"),
+                        SizedBox(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            child: Text("Sign in with Google"),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text("Forgotten password"),
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+
                   Center(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text("Don't have an account?"),
+                        Text("Already have an account?"),
                         TextButton(
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return SignupExercisePage();
+                                  return LoginExercisePage();
                                 },
                               ),
                             );
                           },
-                          child: Text("Sign up"),
+                          child: Text("Login"),
                         ),
                       ],
                     ),

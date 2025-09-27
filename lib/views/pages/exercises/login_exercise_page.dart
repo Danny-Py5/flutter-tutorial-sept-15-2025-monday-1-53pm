@@ -90,7 +90,13 @@ class _LoginExercisePageState extends State<LoginExercisePage> {
                         ),
                       ),
                     ),
-                    FilledButton(onPressed: () {}, child: Text('Login >')),
+                    SizedBox(
+                      width: double.infinity,
+                      child: FilledButton(
+                        onPressed: () {},
+                        child: Text('Login '),
+                      ),
+                    ),
                   ],
                 ),
               ),
