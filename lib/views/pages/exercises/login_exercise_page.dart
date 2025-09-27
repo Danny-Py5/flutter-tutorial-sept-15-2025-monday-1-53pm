@@ -31,100 +31,122 @@ class _LoginExercisePageState extends State<LoginExercisePage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min, // 👈 important fix
-            children: [
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min, // 👈 also helps
-                  children: [
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    FittedBox(
-                      child: Text(
-                        "Welcome Back",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
+          child: Center(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return FractionallySizedBox(
+                  widthFactor: constraints.maxWidth < 376
+                      ? 1.0
+                      : MediaQuery.of(context).size.width < 412
+                      ? 0.9
+                      : 0.75,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min, // 👈 important fix
+                    children: [
+                      Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min, // 👈 also helps
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.05,
+                            ),
+                            FittedBox(
+                              child: Text(
+                                "Welcome Back",
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Text("Enter your credentials to login"),
+                          ],
                         ),
                       ),
-                    ),
-                    Text("Enter your credentials to login"),
-                  ],
-                ),
-              ),
 
-              SizedBox(height: 50),
+                      SizedBox(height: 50),
 
-              Center(
-                // inputs
-                child: Column(
-                  spacing: 20,
-                  children: [
-                    TextField(
-                      controller: emailController,
-                      decoration: InputDecoration(
-                        fillColor: textInputFillColor,
-                        filled: true,
-                        hint: Text("Input Your Email Address here"),
-                        label: Text("Email Address"),
-                        prefixIcon: Icon(Icons.email),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(
-                            Defaults.borderRadius,
-                          ),
+                      Center(
+                        // inputs
+                        child: Column(
+                          spacing: 20,
+                          children: [
+                            TextField(
+                              controller: emailController,
+                              decoration: InputDecoration(
+                                fillColor: textInputFillColor,
+                                filled: true,
+                                hint: Text("Input Your Email Address here"),
+                                label: Text("Email Address"),
+                                prefixIcon: Icon(Icons.email),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(
+                                    Defaults.borderRadius,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            TextField(
+                              controller: passwordController,
+                              decoration: InputDecoration(
+                                fillColor: textInputFillColor,
+                                filled: true,
+                                hint: Text("Input your password"),
+                                label: Text("Password"),
+                                prefixIcon: Icon(Icons.password_sharp),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(
+                                    Defaults.borderRadius,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: double.infinity,
+                              child: FilledButton(
+                                onPressed: () {},
+                                child: Text('Login '),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    TextField(
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                        fillColor: textInputFillColor,
-                        filled: true,
-                        hint: Text("Input your password"),
-                        label: Text("Password"),
-                        prefixIcon: Icon(Icons.password_sharp),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(
-                            Defaults.borderRadius,
-                          ),
-                        ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton(
+                      TextButton(
                         onPressed: () {},
-                        child: Text('Login '),
+                        child: Text("Forgotten password"),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-              TextButton(onPressed: () {}, child: Text("Forgotten password")),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-              Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text("Don't have an account?"),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return SignupExercisePage();
-                            },
-                          ),
-                        );
-                      },
-                      child: Text("Sign up"),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                      Center(
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text("Don't have an account?"),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return SignupExercisePage();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Text("Sign up"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),
