@@ -21,7 +21,7 @@ class _CoursePageState extends State<CoursePage> {
   }
 
   Future fetchData() async {
-    final uri = Uri.https('jsonplaceholder.typicode.com', '/todos/1');
+    final uri = Uri.https('jsonplaceholder.typicode.com', '/todos/5');
 
     try {
       final response = await http.get(uri);
@@ -70,9 +70,7 @@ class _CoursePageState extends State<CoursePage> {
                                 spacing: 16,
                                 children: [
                                   ClipRRect(
-                                    borderRadius: BorderRadiusGeometry.circular(
-                                      50,
-                                    ),
+                                    borderRadius: BorderRadius.circular(50),
                                     child: Image.asset(
                                       'assets/images/flutter.webp',
                                       fit: BoxFit.cover,
@@ -80,24 +78,25 @@ class _CoursePageState extends State<CoursePage> {
                                       height: 50,
                                     ),
                                   ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      FittedBox(
-                                        child: Text(
+                                  Expanded(
+                                    // 👈 this forces text to take remaining space
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
                                           todo.title,
-                                          style: TextStyle(fontSize: 18),
+                                          style: const TextStyle(fontSize: 18),
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 1,
                                         ),
-                                      ),
-                                      Text(
-                                        todo.completed.toString(),
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
-                                      ),
-                                    ],
+                                        Text(
+                                          todo.completed.toString(),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
