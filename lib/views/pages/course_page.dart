@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/data/classes/activity_class.dart';
+import 'package:flutter_application_1/data/classes/todo_class.dart';
 import 'package:flutter_application_1/data/constants/defaults.dart';
 import 'package:flutter_application_1/views/widgets/hero_widget.dart';
 import 'package:http/http.dart' as http;
@@ -14,30 +14,24 @@ class CoursePage extends StatefulWidget {
 }
 
 class _CoursePageState extends State<CoursePage> {
-  Map<String, dynamic>? data;
-
   @override
   void initState() {
     fetchData();
     super.initState();
   }
 
-  Future<void> fetchData() async {
-    final uri = Uri.https('bored-api.appbrewery.com', '/random');
+  Future fetchData() async {
+    final uri = Uri.https('jsonplaceholder.typicode.com', '/todos/1');
+
     try {
       final response = await http.get(uri);
       if (response.statusCode == 200) {
-        final responseData =
-            Activity.fromJson(json.decode(response.body))
-                as Map<String, dynamic>;
-        setState(() {
-          data = responseData;
-        });
+        return Todo.fromJson(json.decode(response.body));
       } else {
         throw Exception('Failed to load data');
       }
     } catch (e) {
-      print('Error fetching data: $e');
+      return Future.error(e);
     }
   }
 
@@ -54,21 +48,28 @@ class _CoursePageState extends State<CoursePage> {
                 : MediaQuery.of(context).size.width < 412
                 ? 0.9
                 : 0.75,
-            child: Center(
-              child: Column(
-                spacing: 16,
-                children: [
-                  HeroWidget(title: "Course"),
-                  data == null
-                      ? CircularProgressIndicator()
-                      : Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              spacing: 16,
-                              children: [
-                                FittedBox(
-                                  child: ClipRRect(
+            child: Column(
+              spacing: 16,
+              children: [
+                FutureBuilder(
+                  future: fetchData(),
+                  builder: (context, snapshot) {
+                    Widget? widget;
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      widget = CircularProgressIndicator();
+                    } else if (snapshot.hasData) {
+                      Todo todo = snapshot.data;
+                      widget = Column(
+                        spacing: 16,
+                        children: [
+                          HeroWidget(title: "Course"),
+                          Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                spacing: 16,
+                                children: [
+                                  ClipRRect(
                                     borderRadius: BorderRadiusGeometry.circular(
                                       50,
                                     ),
@@ -79,28 +80,38 @@ class _CoursePageState extends State<CoursePage> {
                                       height: 50,
                                     ),
                                   ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    FittedBox(
-                                      child: Text(
-                                        data!['activity'],
-                                        style: TextStyle(fontSize: 18),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      FittedBox(
+                                        child: Text(
+                                          todo.title,
+                                          style: TextStyle(fontSize: 18),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      data!['accessibility'] ??
-                                          "something went wrong",
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                      Text(
+                                        todo.completed.toString(),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                ],
-              ),
+                        ],
+                      );
+                    } else {
+                      widget = Text('Error: no data found');
+                    }
+                    return widget;
+                  },
+                ),
+              ],
             ),
           ),
         ),
